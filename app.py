@@ -39,12 +39,10 @@ def ingest_urls(urls):
             content_store.extend(sentences)
 
 def estimate_tokens(text):
-    """Roughly estimate the number of tokens in a text (1 token ≈ 0.75 words)."""
     words = len(text.split())
     return int(words / 0.75) + 1  
 
 def truncate_context(context, max_tokens, question):
-    """Truncate context to fit within max_tokens, preserving the question."""
     base_prompt = (
         "You are an AI that answers questions based solely on the provided context. "
         "Do not use any external knowledge or make assumptions beyond the given text. "
